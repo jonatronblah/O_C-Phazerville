@@ -36,13 +36,14 @@ SECTIONS
 
 	.text.progmem : {
 		*(.progmem*)
+		*(.text*)
+		*(.ARM.exidx .ARM.exidx.text* .ARM.extab.text* .gnu.linkonce.armexidx.*)
 		. = ALIGN(4);
 	} > FLASH
 
 	.text.itcm : {
 		. = . + 32; /* MPU to trap NULL pointer deref */
 		*(.fastrun)
-		*(.text*)
 		. = ALIGN(16);
 	} > ITCM  AT> FLASH
 

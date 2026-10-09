@@ -28,8 +28,8 @@ public:
   MonoReg &mono_applets;
   StereoReg &stereo_applets;
 
-  const array<RegID, NumMonoProcessors> mono_appletIds;
-  const array<RegID, NumStereoProcessors> stereo_appletIds;
+  static constexpr array<RegID, NumMonoProcessors> mono_appletIds __attribute__((section(".progmem.statics"))) = MonoReg::getIds();
+  static constexpr array<RegID, NumStereoProcessors> stereo_appletIds __attribute__((section(".progmem.statics"))) = StereoReg::getIds();
 
   static constexpr size_t NumStereoSources = NumStereoProcessors;
   static constexpr size_t NumMonoSources = NumMonoProcessors;
@@ -37,8 +37,6 @@ public:
   AudioAppletSubapp(MonoReg &mono_applets_, StereoReg &stereo_applets_)
     : mono_applets(mono_applets_)
     , stereo_applets(stereo_applets_)
-    , mono_appletIds(mono_applets.getIds())
-    , stereo_appletIds(stereo_applets.getIds())
   {
     selected_mono_applets[0].fill(0);
     selected_mono_applets[1].fill(0);

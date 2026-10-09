@@ -54,6 +54,11 @@ struct Factory {
   std::array<T*, max_instances> pool;
   uint16_t mask = 0;
 
+  // Explicit runtime zeroing (deliberately not constexpr): lets the pool live
+  // in .dmabuffers (RAM2, NOLOAD — not zeroed at startup) while keeping the
+  // guaranteed all-free initial state that .bss used to provide.
+  Factory() { pool.fill(nullptr); mask = 0; }
+
   T* get() {
     for (size_t i = 0; i < max_instances; ++i) {
       if (mask & (1 << i)) continue;

@@ -20,6 +20,7 @@
   static constexpr const uint8_t* applet_icon_
 
 // actual applets
+#include "ClockLoop.h"
 #include "CrosspanApplet.h"
 #include "DelayApplet.h"
 #include "DynamicsApplet.h"
@@ -27,6 +28,16 @@
 #include "InputApplet.h"
 #include "LadderApplet.h"
 #include "MidSideApplet.h"
+#include "MidSider.h"
+#include "CascDyn.h"
+#include "CombChorus.h"
+#include "CrossSynth.h"
+#include "FdbkOsc.h"
+#include "FreqShift.h"
+#include "Harmo.h"
+#include "SpecFreeze.h"
+#include "SpectraClust.h"
+#include "Tapeworm.h"
 #include "OscApplet.h"
 #include "PassthruApplet.h"
 #include "UpsampledApplet.h"
@@ -100,10 +111,21 @@ constexpr Registry stereo_applets = Registry<HemisphereAudioApplet, NUM_SLOTS
   , DeclareFancyApplet<UpsampledApplet<STEREO>>
   , DeclareFancyApplet<CrosspanApplet>
   , DeclareFancyApplet<MidSideApplet>
+  , DeclareFancyApplet<MidSider<STEREO>>
   , DeclareFancyApplet<VcaApplet<STEREO>>
   , DeclareFancyApplet<DynamicsApplet<STEREO>>
   , DeclareFancyApplet<ThreeBandzApplet<STEREO>>
   , DeclareFancyApplet<DelayApplet<STEREO>>
+  , DeclareFancyApplet<ClockLoop<STEREO>>
+  , DeclareFancyApplet<CascDyn<STEREO>>
+  , DeclareFancyApplet<CombChorus<STEREO>>
+  , DeclareFancyApplet<CrossSynth<STEREO>>
+  , DeclareFancyApplet<FdbkOsc<STEREO>>
+  , DeclareFancyApplet<FreqShift<STEREO>>
+  , DeclareFancyApplet<Harmo<STEREO>>
+  , DeclareFancyApplet<SpecFreeze<STEREO>>
+  , DeclareFancyApplet<SpectraClust<STEREO>>
+  , DeclareFancyApplet<Tapeworm<STEREO>>
   // , DeclareFancyApplet<AbyssApplet<STEREO>>
   // , DeclareFancyApplet<AnimorfApplet<STEREO>>
   , DeclareFancyApplet<LadderApplet<STEREO>>
@@ -116,10 +138,10 @@ constexpr Registry stereo_applets = Registry<HemisphereAudioApplet, NUM_SLOTS
 #endif
 >{};
 
-static constexpr auto mono_appletIds = mono_applets.getIds();
+static constexpr auto mono_appletIds __attribute__((section(".progmem"))) = mono_applets.getIds();
 constexpr int MONO_POOL_SIZE = mono_appletIds.size();
 
-static constexpr auto stereo_appletIds = stereo_applets.getIds();
+static constexpr auto stereo_appletIds __attribute__((section(".progmem"))) = stereo_applets.getIds();
 constexpr int STEREO_POOL_SIZE = stereo_appletIds.size();
 
 /*DMAMEM std::tuple<*/

@@ -58,7 +58,7 @@ enum HemMidiType {
   HEM_MIDI_STOP = midi::Stop,
 };
 
-const char* const midi_note_numbers[128] = {
+const char* const midi_note_numbers[128] PROGMEM = {
     "C-1","C#-1","D-1","D#-1","E-1","F-1","F#-1","G-1","G#-1","A-1","A#-1","B-1",
     "C0","C#0","D0","D#0","E0","F0","F#0","G0","G#0","A0","A#0","B0",
     "C1","C#1","D1","D#1","E1","F1","F#1","G1","G#1","A1","A#1","B1",
@@ -72,7 +72,7 @@ const char* const midi_note_numbers[128] = {
     "C9","C#9","D9","D#9","E9","F9","F#9","G9"
 };
 
-const char* const midi_channels[17] = {
+const char* const midi_channels[17] PROGMEM = {
     " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8",
     " 9", "10", "11", "12", "13", "14", "15", "16", "Om"
 };

@@ -59,7 +59,7 @@ static constexpr uint8_t ACCENT_FULL   = 5; // maximum accent
 // At chaos=0 the dominant weights dominate hard; at chaos=100 all → 8 (flat).
 //
 //               R    H   AH    F   AF   R2   R3   R4
-static const uint8_t profiles[4][8][8] = {
+static const uint8_t profiles[4][8][8] __attribute__((section(".progmem"))) = {
     // 0: Steady (Rock/Pop)
     // Gravitates toward hits and accented hits. Rests are brief.
     // Flams appear as ornaments. Ratchets are rare fills.

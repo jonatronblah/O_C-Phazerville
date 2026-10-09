@@ -55,7 +55,7 @@ struct Registry {
         return arr;
     }
 
-    static constexpr std::array<FactoryFn, Size> factories = buildFactories();
+    static constexpr std::array<FactoryFn, Size> factories __attribute__((section(".progmem.statics"))) = buildFactories();
 
     mutable std::array<std::array<T*, Size>, Slots> instances{}; // Raw pointers, default nullptr
 

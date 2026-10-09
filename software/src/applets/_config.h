@@ -20,6 +20,7 @@ using namespace HS;
 
 #include "ADSREG.h"
 #include "ADEG.h"
+#include "AnalysisCV.h"
 #include "ASR.h"
 #include "AttenuateOffset.h"
 #include "Binary.h"
@@ -42,7 +43,11 @@ using namespace HS;
 #include "ClockSkip.h"
 #include "Combin8.h"
 #include "Compare.h"
+#ifdef __IMXRT1062__
+#include "CueLoop.h"
+#endif
 #include "CVSeq.h"
+#include "CVTime.h"
 #include "DivSeq.h"
 #include "DivSeq10.h"
 #include "DrumMap.h"
@@ -136,6 +141,7 @@ using namespace HS;
 constexpr Registry reg = Registry<HemisphereApplet, HS::APPLET_SLOTS
     , DeclareApplet<ADSREG, 8, CAT_MODULATOR>
     , DeclareApplet<ADEG, 34, CAT_MODULATOR>
+    , DeclareApplet<AnalysisCV, 97, CAT_MODULATOR | CAT_UTILITY>
     , DeclareApplet<MiniASR, 47, CAT_MODULATOR | CAT_QUANTIZER>
     , DeclareApplet<AttenuateOffset, 56, CAT_UTILITY>
     , DeclareApplet<Binary, 41, CAT_LOGIC | CAT_MODULATOR>
@@ -154,9 +160,13 @@ constexpr Registry reg = Registry<HemisphereApplet, HS::APPLET_SLOTS
     , DeclareApplet<ClockSkip, 28, CAT_CLOCKING>
     , DeclareApplet<Combin8, 82, CAT_UTILITY>
     , DeclareApplet<Compare, 30, CAT_UTILITY>
+#ifdef __IMXRT1062__
+    , DeclareApplet<CueLoop, 95, CAT_SEQUENCER | CAT_MODULATOR>
+#endif
     , DeclareApplet<Cumulus, 5, CAT_LOGIC>
     , DeclareApplet<CVRecV2, 24, CAT_SEQUENCER>
     , DeclareApplet<CVSeq, 92, CAT_SEQUENCER>
+    , DeclareApplet<CVTime, 96, CAT_MODULATOR>
     , DeclareApplet<DivSeq, 68, CAT_SEQUENCER | CAT_CLOCKING>
     , DeclareApplet<DivSeq10, 80, CAT_SEQUENCER | CAT_CLOCKING>
     , DeclareApplet<DrLoFi, 16, CAT_OTHER>
@@ -249,7 +259,7 @@ constexpr Registry reg = Registry<HemisphereApplet, HS::APPLET_SLOTS
 
 
 namespace HS {
-  static constexpr auto appletIds = reg.getIds();
+  static constexpr auto appletIds __attribute__((section(".progmem"))) = reg.getIds();
   constexpr int HEMISPHERE_AVAILABLE_APPLETS = appletIds.size();
 
   uint64_t hidden_applets[2] = { 0, 0 };

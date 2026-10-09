@@ -51,6 +51,7 @@ Newer ORN8 hardware (T41) hosts the same set of Applets, four at a time, inside 
 
 * [ADSR](ADSR-EG) - Dual attack / decay / sustain / release envelope
 * [AD EG](AD-EG) - Attack / decay envelope
+* AnalysisCV - audio analysis to CV: spectral centroid, flux, level and zero-crossing rate
 * [ASR](ASR) - Analog Shift Register
 * [AttenOff](AttenOff) - Attenu-vert, Offset, and Mix inputs (now with +/-200% range, mix control)
 * [Binary Counter](Binary-Counter) - 1 bit per input, output as voltage
@@ -69,8 +70,10 @@ Newer ORN8 hardware (T41) hosts the same set of Applets, four at a time, inside 
 * [ClockSkip](Clock-Skipper) - Randomly skip pulses
 * [Combin8](Combin8) - Two 3:1 mixer channels
 * [Compare](Compare) - Basic comparator
+* CueLoop - CV recorder/looper with cue points, sampler-style triggering and interpolated playback
 * [Cumulus](Cumulus) - Bit accumulator, inspired by Schlappi Nibbler
 * [CVRec](CV-Recorder) - Record / smooth / playback CV up to 384 steps on 2 tracks
+* CVTime - CV and gate delay with dynamically CV-able gate lengths
 * [DivSeq](DivSeq) - Two sequences of clock dividers
 * [DrumMap](DrumMap) - Clone of Mutable Instruments Grids
 * [DualQuant](Dual-Quantizer) - Basic 2-channel quantizer with sample and hold
@@ -139,22 +142,33 @@ Newer ORN8 hardware (T41) hosts the same set of Applets, four at a time, inside 
 
 Within [Quadrants](Quadrants) on ORN8 hardware, there are sound generators and effects, using the power of Teensy 4.1 for DSP in 16-bit 48kHz quality. Although the hardware codec is limited to 16-bit, the firmware library can be upgraded to 32-bit float in the future.
 
+* CascDyn - multiband OTT-style dynamics with upward compression and cascading sidechains
+* ClockLoop - clockable stereo looper with scrub, overdub and feedback dub
+* CombChorus - CV comb filter (feedback/feedforward, V/Oct mode) and deep-CV stereo ensemble chorus with complex LFO
 * Crosspan
+* CrossSynth - spectral morph and cross-synthesis of two inputs
 * Delay - uses PSRAM for longer buffers
 * Dynamics - gate -> compressor -> gain -> limiter
   - plus 3-Bandz - multiband version of the same
+* FdbkOsc - delay feedback ring as a playable oscillator with freeze
 * FMDrum - small noisy percussion
 * Fold/MMF - wavefolder + multi-mode filter
+* FreqShift - Bode frequency shifter in a feedback ring with runaway self-oscillation
 * Glitch - stutter effects
 * Grit - saturation & distortion
 * HandSaw - inspired by Acid Rain Chainsaw/Ripsaw
+* Harmo - dual-voice CV harmonizer with pitch-shift feedback
 * HarmOsc - additive synthesis
 * Input - analog, or USB if enabled
 * KrpsStrng
 * Mid/Side
+* MidSider - mid-side dynamics + stereo width filter, with band-keyed side ducking
 * Misty - granular effect
 * ModalResonator
 * Osc - standard shapes, with FM and PM
+* SpecFreeze - live spectral freeze and stretch with CV
+* SpectraClust - steerable animated resonant filter cluster with morphable scenes
+* Tapeworm - tape & vinyl transport character with CV'd wow, flutter, age, dropouts, crackle & rumble
 * TuneTracker - monophonic pitch detection, pitch-to-CV
 * Upsampled (from CV)
 * VCA - high-quality, with variable curve

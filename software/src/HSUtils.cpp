@@ -875,8 +875,15 @@ struct Zap {
     }
 };
 static constexpr int HOW_MANY_ZAPS = 30;
+DMAMEM static Zap zaps[HOW_MANY_ZAPS]; // .dmabuffers (RAM2, NOLOAD)
 void ZapScreensaver(const uint8_t stars) {
-  static Zap zaps[HOW_MANY_ZAPS];
+  static bool zaps_ready = false;
+  if (!zaps_ready) {
+    // DMAMEM is NOLOAD (not zeroed at startup) — restore the original
+    // static-initialization state once before first use
+    for (int i = 0; i < HOW_MANY_ZAPS; i++) zaps[i] = Zap{};
+    zaps_ready = true;
+  }
   static int frame_delay = 0;
   static elapsedMillis timer = 0;
   const uint8_t* flake_icon[] = {

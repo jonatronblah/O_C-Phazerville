@@ -35,7 +35,7 @@ namespace MarkoVData {
 // extensions into the second octave. Every state maps to a unique scale degree.
 // Weights use 20:1 ratios so profiles sound clearly different.
 // At chaos=0 the dominant weights dominate hard; at chaos=100 all → 8 (flat).
-static const uint8_t profiles[5][10][10] = {
+static const uint8_t profiles[5][10][10] __attribute__((section(".progmem"))) = {
     // 0: Pentatonic Stability
     // Root(0) and fifth(4) are strong attractors from any state.
     // Octave(9) is a common arrival point. High states (7-9) fall back down.

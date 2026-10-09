@@ -35,7 +35,7 @@ namespace OC {
   const char * const SHORT_NAME = "o_C";
 #endif
 
-  const char * const err_msg[] = { "(missing msg)",
+  const char * const err_msg[] __attribute__((section(".progmem"))) = { "(missing msg)",
     "LFS WRITE ERROR!",
     "PRESET SAVED!",
     "MYSTERIOUS ERROR",
@@ -50,27 +50,27 @@ namespace OC {
   const char * const SHORT_NAME_NLM = "XoC";
 #endif
 
-  const char * const seq_playmodes[] = {" -", "SEQ+1", "SEQ+2", "SEQ+3", "TR+1", "TR+2", "TR+3", "ARP", "S+H#1", "S+H#2", "S+H#3", "S+H#4", "CV#1", "CV#2", "CV#3", "CV#4"};
+  const char * const seq_playmodes[] __attribute__((section(".progmem"))) = {" -", "SEQ+1", "SEQ+2", "SEQ+3", "TR+1", "TR+2", "TR+3", "ARP", "S+H#1", "S+H#2", "S+H#3", "S+H#4", "CV#1", "CV#2", "CV#3", "CV#4"};
 
-  const char * const channel_trigger_sources[] = {"TR1", "TR2", "TR3", "TR4", "cnt+", "cnt-"};
+  const char * const channel_trigger_sources[] __attribute__((section(".progmem"))) = {"TR1", "TR2", "TR3", "TR4", "cnt+", "cnt-"};
 
-  const char * const seq_directions[] = {"fwd", "rev", "pnd1", "pnd2", "rnd", "brwn"};
+  const char * const seq_directions[] __attribute__((section(".progmem"))) = {"fwd", "rev", "pnd1", "pnd2", "rnd", "brwn"};
 
-  const char * const scale_degrees_maj[] = {"I", "II", "III", "IV", "V", "VI", "VII"};
+  const char * const scale_degrees_maj[] __attribute__((section(".progmem"))) = {"I", "II", "III", "IV", "V", "VI", "VII"};
   
-  const char* const scale_degrees_min[] = {"i", "ii", "iii", "iv", "v", "vi", "vii"};
+  const char* const scale_degrees_min[] __attribute__((section(".progmem"))) = {"i", "ii", "iii", "iv", "v", "vi", "vii"};
 
-  const char* const accidentals[] = {"bb", "b", "", "#", "##"};
+  const char* const accidentals[] __attribute__((section(".progmem"))) = {"bb", "b", "", "#", "##"};
 
-  const char * const scale_id[] = { ">#1", ">#2", ">#3", ">#4", " #1", " #2", " #3", " #4"};
+  const char * const scale_id[] __attribute__((section(".progmem"))) = { ">#1", ">#2", ">#3", ">#4", " #1", " #2", " #3", " #4"};
   
-  const char * const note_names[12] = { "C ", "C#", "D ", "D#", "E ", "F ", "F#", "G ", "G#", "A ", "A#", "B " };
+  const char * const note_names[12] __attribute__((section(".progmem"))) = { "C ", "C#", "D ", "D#", "E ", "F ", "F#", "G ", "G#", "A ", "A#", "B " };
   
-  const char * const note_names_unpadded[12] = { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+  const char * const note_names_unpadded[12] __attribute__((section(".progmem"))) = { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
 
-  const char * const VOR_offsets[3] = { "-5V", "-3V", "0V"};
+  const char * const VOR_offsets[3] __attribute__((section(".progmem"))) = { "-5V", "-3V", "0V"};
 
-  const char * const trigger_input_names_none[] = { " - ", "TR1", "TR2", "TR3", "TR4",
+  const char * const trigger_input_names_none[] __attribute__((section(".progmem"))) = { " - ", "TR1", "TR2", "TR3", "TR4",
     "CV1", "CV2", "CV3", "CV4",
 #ifdef ARDUINO_TEENSY41
     "CV5", "CV6", "CV7", "CV8",
@@ -81,7 +81,7 @@ namespace OC {
 #endif
   };
 
-  const char * const cv_input_names_none[] = {
+  const char * const cv_input_names_none[] __attribute__((section(".progmem"))) = {
     " - ",
     // inputs
     "C 1", "C 2", "C 3", "C 4",
@@ -113,73 +113,73 @@ namespace OC {
   };
 
   // deprecated - use capital_letters[] instead
-  const char * const channel_id[4] = { "#A", "#B", "#C", "#D" };
+  const char * const channel_id[4] __attribute__((section(".progmem"))) = { "#A", "#B", "#C", "#D" };
 
-  const char * const capital_letters[52] = {
+  const char * const capital_letters[52] __attribute__((section(".progmem"))) = {
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
     "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
 
-  const char * const no_yes[] = { "No", "Yes" };
+  const char * const no_yes[] __attribute__((section(".progmem"))) = { "No", "Yes" };
 
-  const char * const off_on[] = { "off", "on" };
+  const char * const off_on[] __attribute__((section(".progmem"))) = { "off", "on" };
 
-  const char * const scaling_string[] = {"scaling "};
+  const char * const scaling_string[] __attribute__((section(".progmem"))) = {"scaling "};
 
-  const char * const encoder_config_strings[] = { "normal", "R reversed", "L reversed", "LR reversed" };
+  const char * const encoder_config_strings[] __attribute__((section(".progmem"))) = { "normal", "R reversed", "L reversed", "LR reversed" };
 
-  const char * const trigger_delay_times[kNumDelayTimes] = {
+  const char * const trigger_delay_times[kNumDelayTimes] __attribute__((section(".progmem"))) = {
       "off", "120us", "240us", "360us", "480us", "1ms", "2ms", "4ms"
   };
 
-  const char* const bytebeat_equation_names[] = {
+  const char* const bytebeat_equation_names[] __attribute__((section(".progmem"))) = {
     "hope", "love", "life", "age", "clysm", "monk", "NERV", "Trurl", "Pirx", "Snaut", "Hari" , "Kris", "Tichy", "Bregg", "Avon", "Orac"
   };
 
-  const char* const envelope_shapes[11] = {
+  const char* const envelope_shapes[11] __attribute__((section(".progmem"))) = {
     "Lin", "Exp", "Quart", "Sine", "Ledge", "Cliff", "Gate", "BgDip", "MeDip", "LtDip", "Wiggl"
   };
 
-  const char* const integer_sequence_names[] = {
+  const char* const integer_sequence_names[] __attribute__((section(".progmem"))) = {
     "pi", "vnEck", "ssdn", "Dress", "PNinf" , "Dsum", "Dsum4", "Dsum5", "CDn2", "Frcti" 
   };     
 
-  const char* const integer_sequence_dirs[] = {
+  const char* const integer_sequence_dirs[] __attribute__((section(".progmem"))) = {
     "swing", "loop"
   };
 
-  const char* const chord_property_names[] = {"Q", "V", "I", "B", "O"};
+  const char* const chord_property_names[] __attribute__((section(".progmem"))) = {"Q", "V", "I", "B", "O"};
 
-  const char* const mult[] = {
+  const char* const mult[] __attribute__((section(".progmem"))) = {
     "x0.05", "x0.10", "x0.15", "x0.20", "x0.25", "x0.30", "x0.35", "x0.40", "x0.45", "x0.50", 
     "x0.55", "x0.60", "x0.65", "x0.70", "x0.75", "x0.80", "x0.85", "x0.90", "x0.95", "x1.00", 
     "x1.05", "x1.10", "x1.15", "x1.20", "x1.25", "x1.30", "x1.35", "x1.40", "x1.45", "x1.50",
     "x1.55", "x1.60", "x1.65", "x1.70", "x1.75", "x1.80", "x1.85", "x1.90", "x1.95", "x2.00"
   };
 
-  const char* const TM_aux_cv_destinations[] = {
+  const char* const TM_aux_cv_destinations[] __attribute__((section(".progmem"))) = {
   "-", "rng", "len", "prb"
   };
 
-  const char* const reset_behaviours[] = {
+  const char* const reset_behaviours[] __attribute__((section(".progmem"))) = {
   "None",  "SP", "SLP", "SL", "P", 
   };
 
-  const char* const falling_gate_behaviours[] = {
+  const char* const falling_gate_behaviours[] __attribute__((section(".progmem"))) = {
   "Ignor",  "Honor", 
   };
 
-  const char* const octave_constraint[] = {
+  const char* const octave_constraint[] __attribute__((section(".progmem"))) = {
     "Off",  "Up", "Down", 
   };
 
-  const char *const output_mode_strings[] = {
+  const char *const output_mode_strings[] __attribute__((section(".progmem"))) = {
     "Pitch", "Gate", "Uni", "Raw"
   };
 
 
-  const uint8_t pi_digits[kIntSeqLen] =     
+  const uint8_t pi_digits[kIntSeqLen] __attribute__((section(".progmem"))) =     
  {3,1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1,6,9,3,9,9,3,7,5,1,0,5,8,2,0,9,7,4,9,4,4,5,9,2,
   3,0,7,8,1,6,4,0,6,2,8,6,2,0,8,9,9,8,6,2,8,0,3,4,8,2,5,3,4,2,1,1,7,0,6,7,9,8,2,1,4,8,0,8,6,5,1,3,2,8,2,3,0,6,6,4,7,0,9,3,8,4,4,6} ;
 //  0,9,5,5,0,5,8,2,2,3,1,7,2,5,3,5,9,4,0,8,1,2,8,4,8,1,1,1,7,4,5,0,2,8,4,1,0,2,7,0,1,9,3,8,5,2,1,1,0,5,5,5,9,6,4,4,6,2,2,9,4,8,9,5,
@@ -206,7 +206,7 @@ namespace OC {
 //  8,2,0,6,0,5,7,1,4,7,0,1,0,9,5,5,9,9,7,1,6,0,5,9,7,0,2,7,4,5,3,4,5,9,6,8,6,2,0,1,4,7,2,8,5,1,7,4,1,8,6,4,0,8,8,9,1,9,8,6,0,9,5,5};
 
   // van Eck sequence - generated using Python code found at https://oeis.org/A181391
-    const uint8_t van_eck[kIntSeqLen] =       {0,0,1,0,2,0,2,2,1,6,0,5,0,2,6,5,4,0,5,3,0,3,2,9,0,4,9,3,6,14,0,6,3,5,15,0,5,3,5,2,17,0,6,11,
+    const uint8_t van_eck[kIntSeqLen] __attribute__((section(".progmem"))) =       {0,0,1,0,2,0,2,2,1,6,0,5,0,2,6,5,4,0,5,3,0,3,2,9,0,4,9,3,6,14,0,6,3,5,15,0,5,3,5,2,17,0,6,11,
                                                              0,3,8,0,3,3,1,42,0,5,15,20,0,4,32,0,3,11,18,0,4,7,0,3,7,3,2,31,0,6,31,3,6,3,2,8,33,0,9,56,0,
                                                              3,8,7,19,0,5,37,0,3,8,8,1,46,0,6,23,0,3,9,21,0,4,42,56,25,0,5,21,8,18,52,0,6,18,4,13,0,5,11,62,0,4,7};  
 //  const uint8_t van_eck[256] =       {0,0,1,0,2,0,2,2,1,6,0,5,0,2,6,5,4,0,5,3,0,3,2,9,0,4,9,3,6,14,0,6,3,5,15,0,5,3,5,2,17,0,6,11,0,3,8,0,3,3,1,42,0,5,
@@ -216,7 +216,7 @@ namespace OC {
 //  23,144,0,4,9,51,94,0,5,78,0,3} ;
 
     // Sum of squares of digits of n - see https://oeis.org/A003132
-    const uint8_t sum_of_squares_of_digits_of_n[kIntSeqLen] =       {0,1,4,9,16,25,36,49,64,81,1,2,5,10,17,26,37,50,65,82,4,5,8,13,20,29,40,53,68,85,9,10,13,18,25,34,45,58,73,
+    const uint8_t sum_of_squares_of_digits_of_n[kIntSeqLen] __attribute__((section(".progmem"))) =       {0,1,4,9,16,25,36,49,64,81,1,2,5,10,17,26,37,50,65,82,4,5,8,13,20,29,40,53,68,85,9,10,13,18,25,34,45,58,73,
                                                               90,16,17,20,25,32,41,52,65,80,97,25,26,29,34,41,50,61,74,89,106,36,37,40,45,52,61,72,85,100,117,49,50,53,58,
                                                               65,74,85,98,113,130,64,65,68,73,80,89,100,113,128,145,81,82,85,90,97,106,117,130,145,162,1,2,5,10,17,26,37,
                                                               50,65,82,2,3,6,11,18,27,38,51,66,83,5,6,9,14,21,30,41,54} ;
@@ -229,7 +229,7 @@ namespace OC {
 //  38,49,62,77,94,20,21,24,29,36,45,56,69,84,101,29,30,33,38,45,54} ;
 
   //  Digital sum (i.e., sum of digits) of n; also called digsum(n). - see https://oeis.org/A007953
-  const uint8_t digsum_of_n[kIntSeqLen] =       {0,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,11,3,4,5,6,7,8,9,10,11,12,4,5,6,7,8,9,10,11,12,13,5,6,7,8,9,
+  const uint8_t digsum_of_n[kIntSeqLen] __attribute__((section(".progmem"))) =       {0,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,11,3,4,5,6,7,8,9,10,11,12,4,5,6,7,8,9,10,11,12,13,5,6,7,8,9,
                                           10,11,12,13,14,6,7,8,9,10,11,12,13,14,15,7,8,9,10,11,12,13,14,15,16,8,9,10,11,12,13,14,15,16,17,9,10,11,12,13,14,15,16,17,
                                           18,1,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,11,3,4,5,6,7,8,9,10};
 
@@ -244,7 +244,7 @@ namespace OC {
 // 8, 9, 10, 11, 12, 13, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 8, 9, 10, 11, 12};
 
   // Sum of digits of n written in base 4 - see https://oeis.org/A053737
-  const uint8_t digsum_of_n_base4[kIntSeqLen] = {0,1,2,3,1,2,3,4,2,3,4,5,3,4,5,6,1,2,3,4,2,3,4,5,3,4,5,6,4,5,6,7,2,3,4,5,3,4,5,6,4,5,6,7,
+  const uint8_t digsum_of_n_base4[kIntSeqLen] __attribute__((section(".progmem"))) = {0,1,2,3,1,2,3,4,2,3,4,5,3,4,5,6,1,2,3,4,2,3,4,5,3,4,5,6,4,5,6,7,2,3,4,5,3,4,5,6,4,5,6,7,
                                           5,6,7,8,3,4,5,6,4,5,6,7,5,6,7,8,6,7,8,9,1,2,3,4,2,3,4,5,3,4,5,6,4,5,6,7,2,3,4,5,3,4,5,6,
                                           4,5,6,7,5,6,7,8,3,4,5,6,4,5,6,7,5,6,7,8,6,7,8,9,4,5,6,7,5,6,7,8,6,7,8,9,7,8,9,10};
 
@@ -263,7 +263,7 @@ namespace OC {
 //  11 , 9 , 10 , 11 , 12};
 
   // Sum of digits of n written in base 5 - see https://oeis.org/A053824
-  const uint8_t digsum_of_n_base5[kIntSeqLen] = {0,1,2,3,4,1,2,3,4,5,2,3,4,5,6,3,4,5,6,7,4,5,6,7,8,1,2,3,4,5,2,3,4,5,6,3,4,5,6,7,4,5,6,7,8,5,6,
+  const uint8_t digsum_of_n_base5[kIntSeqLen] __attribute__((section(".progmem"))) = {0,1,2,3,4,1,2,3,4,5,2,3,4,5,6,3,4,5,6,7,4,5,6,7,8,1,2,3,4,5,2,3,4,5,6,3,4,5,6,7,4,5,6,7,8,5,6,
                                           7,8,9,2,3,4,5,6,3,4,5,6,7,4,5,6,7,8,5,6,7,8,9,6,7,8,9,10,3,4,5,6,7,4,5,6,7,8,5,6,7,8,9,6,7,8,9,
                                           10,7,8,9,10,11,4,5,6,7,8,5,6,7,8,9,6,7,8,9,10,7,8,9,10,11,8,9,10,11,12,1,2,3};
 
@@ -282,7 +282,7 @@ namespace OC {
 //  10 , 11 , 12 , 13 , 2 , 3 , 4 , 5 , 6 , 3};
 
   // Fractal sequence: count down by 2's from successive integers - see https://oeis.org/A122196
-  const uint8_t count_down_by_2[kIntSeqLen] = {1,2,3,1,4,2,5,3,1,6,4,2,7,5,3,1,8,6,4,2,9,7,5,3,1,10,8,6,4,2,11,9,7,5,3,1,12,10,8,6,4,2,13,11,9,
+  const uint8_t count_down_by_2[kIntSeqLen] __attribute__((section(".progmem"))) = {1,2,3,1,4,2,5,3,1,6,4,2,7,5,3,1,8,6,4,2,9,7,5,3,1,10,8,6,4,2,11,9,7,5,3,1,12,10,8,6,4,2,13,11,9,
                                         7,5,3,1,14,12,10,8,6,4,2,15,13,11,9,7,5,3,1,16,14,12,10,8,6,4,2,17,15,13,11,9,7,5,3,1,18,16,14,12,
                                         10,8,6,4,2,19,17,15,13,11,9,7,5,3,1,20,18,16,14,12,10,8,6,4,2,21,19,17,15,13,11,9,7,5,3,1,22,20,18,16,14,12,10};
 
@@ -303,7 +303,7 @@ namespace OC {
 
 
   // Fractal sequence of the interspersion A163253 - see https://oeis.org/A163256
-  const uint8_t interspersion_of_A163253[kIntSeqLen] = {1,2,3,1,2,4,3,5,1,2,4,6,3,5,7,1,2,4,6,8,3,5,7,9,1,2,4,6,8,10,3,5,7,9,11,1,2,4,6,8,10,12,3,5,7,
+  const uint8_t interspersion_of_A163253[kIntSeqLen] __attribute__((section(".progmem"))) = {1,2,3,1,2,4,3,5,1,2,4,6,3,5,7,1,2,4,6,8,3,5,7,9,1,2,4,6,8,10,3,5,7,9,11,1,2,4,6,8,10,12,3,5,7,
                                                  9,11,13,1,2,4,6,8,10,12,14,3,5,7,9,11,13,15,1,2,4,6,8,10,12,14,16,3,5,7,9,11,13,15,17,1,2,4,6,
                                                  8,10,12,14,16,18,3,5,7,9,11,13,15,17,19,1,2,4,6,8,10,12,14,16,18,20,3,5,7,9,11,13,15,17,19,21,1,2,4,6,8,10,12,14};
 
@@ -352,7 +352,7 @@ namespace OC {
  }; // Strings
 
   // \sa OC_config.h -> kMaxTriggerDelayTicks
-  const uint8_t trigger_delay_ticks[kNumDelayTimes] = {
+  const uint8_t trigger_delay_ticks[kNumDelayTimes] __attribute__((section(".progmem"))) = {
     0, 2, 4, 6, 8, 16, 33, 66
   };
 

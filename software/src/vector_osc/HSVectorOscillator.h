@@ -39,14 +39,14 @@ struct VOSegment {
     uint8_t level = 0;
     uint8_t time = 0;
 
-    bool IsTOC() {return (time == 0xff && level > 0);}
+    bool IsTOC() const {return (time == 0xff && level > 0);}
     void SetTOC(uint8_t segments) {
         time = 0xff;
         level = segments;
     }
 
     /* If this is a TOC segment, Segments() will return how many segments are in the waveform */
-    uint8_t Segments() {return level;}
+    uint8_t Segments() const {return level;}
 
 };
 

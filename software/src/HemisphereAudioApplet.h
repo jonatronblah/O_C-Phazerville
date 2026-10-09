@@ -15,9 +15,9 @@ enum AudioChannels : uint8_t {
 class HemisphereAudioApplet : public HemisphereApplet {
 public:
 
-  static Factory<AudioEffectReverbSchroeder, 8> bung_factory;
-  static Factory<AudioEffectFreeverb, 8> verb_factory;
-  static Factory<AudioEffectDynamics, 20> compressor_factory;
+  static DMAMEM Factory<AudioEffectReverbSchroeder, 8> bung_factory;
+  static DMAMEM Factory<AudioEffectFreeverb, 8> verb_factory;
+  static DMAMEM Factory<AudioEffectDynamics, 20> compressor_factory;
 
   static const uint_fast8_t CONFIG_SIZE = 4;
   static const uint_fast8_t MAX_CABLES = 32;

@@ -40,7 +40,7 @@ increments.astype(int)
 // standard library functions will become `constexpr` in c++26... so I guess we
 // could do it if we ever update to that...
 
-constexpr uint32_t lut_increments[]
+constexpr uint32_t lut_increments[] __attribute__((section(".progmem")))
   = {2106971, 2122239, 2137618, 2153108, 2168710, 2184425, 2200255, 2216199,
      2232258, 2248434, 2264727, 2281138, 2297668, 2314318, 2331089, 2347981,
      2364995, 2382133, 2399395, 2416782, 2434295, 2451935, 2469702, 2487599,
@@ -77,7 +77,7 @@ window) unipolar_fold /= numpy.abs(unipolar_fold).max() (numpy.round(32767 *
 unipolar_fold)).astype(int)
 */
 
-constexpr int16_t wav_bipolar_fold[]
+constexpr int16_t wav_bipolar_fold[] __attribute__((section(".progmem")))
   = {-32767, -32701, -32634, -32566, -32496, -32425, -32353, -32279, -32204,
      -32129, -32053, -31977, -31901, -31825, -31749, -31674, -31600, -31526,
      -31453, -31379, -31305, -31229, -31150, -31068, -30980, -30886, -30783,
@@ -108,7 +108,7 @@ constexpr int16_t wav_bipolar_fold[]
      31825,  31901,  31977,  32053,  32129,  32204,  32279,  32353,  32425,
      32496,  32566,  32634,  32701,  32701};
 
-constexpr int16_t wav_unipolar_fold[] = {
+constexpr int16_t wav_unipolar_fold[] __attribute__((section(".progmem"))) = {
   0,     1405,  2797,  4165,  5496,  6779,  8003,  9157,  10232, 11219, 12110,
   12900, 13581, 14151, 14606, 14944, 15166, 15271, 15261, 15141, 14915, 14588,
   14166, 13659, 13073, 12419, 11706, 10944, 10146, 9321,  8481,  7638,  6803,

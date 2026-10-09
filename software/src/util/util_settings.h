@@ -212,10 +212,10 @@ protected:
 
 #define SETTINGS_ARRAY_DECLARE() \
 public: \
-  static constexpr ValueAttributesArray value_attributes_array
+  static constexpr ValueAttributesArray value_attributes_array /* RAM-resident by design: settings VALUES are written at runtime — NEVER add section()/PROGMEM here. (LTO currently drops section attrs on vague-linkage statics, which is the only reason a .progmem attr here is not corrupting state.) */
 
 #define SETTINGS_ARRAY_DEFINE(clazz) \
-  constexpr clazz::ValueAttributesArray clazz::value_attributes_array
+  constexpr clazz::ValueAttributesArray clazz::value_attributes_array /* RAM-resident by design — see SETTINGS_ARRAY_DECLARE */
 
 } // namespace settings
 
